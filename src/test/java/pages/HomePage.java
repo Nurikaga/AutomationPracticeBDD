@@ -16,4 +16,13 @@ public class HomePage {
 
     @FindBy(xpath="//button[@type='submit']")
     public List<WebElement> dashboards;
+
+    @FindBy(xpath="//button[text()='Add do ']")
+    public WebElement  addDoBtn;
+
+    @FindBy(xpath="//textarea")
+    public WebElement textArea;
+
+    @FindBy(xpath="(//div[@class=' col-md-6'])[1]")
+    public WebElement textInputField;
 }

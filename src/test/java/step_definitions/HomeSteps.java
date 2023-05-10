@@ -2,6 +2,8 @@ package step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
@@ -48,9 +50,22 @@ BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
        List<WebElement> dashboards = new ArrayList<>();
        for(WebElement each: dashboards){
            BrowserUtils.assertTrue(each.getText().contains(dashs));
-       }
+       }}
+        @When("I click on {string} button")
+        public void i_click_on_button(String btn) {
+     BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))));
+        }
+        @When("I enter {string} into input field")
+        public void i_enter_into_input_field(String statement) {
+BrowserUtils.sendKeys(page.textArea, statement);
+        }
+    @Then("Verify if that {string} is displayed")
+    public void verify_if_that_is_displayed(String text) {
+       BrowserUtils.assertTrue(page.textInputField.getText().contains(text));
     }
 
     }
+
+
 
 

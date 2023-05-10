@@ -27,10 +27,10 @@ public class AdminSteps implements CommonPage {
         BrowserUtils.sendKeys(page.passwordInputFiled, "admin123");
         BrowserUtils.click(page.loginBtn);
     }
+    @Then("Verify that {string} button is displayed")
+    public void verify_that_button_is_displayed(String btn) {
 
-    @Then("I should see {string} link")
-    public void i_should_see_link() {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//*[@id=\"root\"]/div/nav/div/a[1]/u")));
+    BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))));
     }
 }
 
