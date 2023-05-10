@@ -12,6 +12,7 @@ import pages.LoginPage;
 import utils.BrowserUtils;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class HomeSteps implements CommonPage {
@@ -61,9 +62,13 @@ BrowserUtils.sendKeys(page.textArea, statement);
         }
     @Then("Verify if that {string} is displayed")
     public void verify_if_that_is_displayed(String text) {
-       BrowserUtils.assertTrue(page.textInputField.getText().contains(text));
-    }
+        List<WebElement> statements = new LinkedList<>();
+        for (WebElement each : statements) {
+BrowserUtils.assertTrue(each.getText().contains(text));
+            //System.out.println(each.getText());
 
+        }
+    }
     }
 
 
