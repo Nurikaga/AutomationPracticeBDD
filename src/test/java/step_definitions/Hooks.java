@@ -23,6 +23,6 @@ public class Hooks {
             CucumberLogUtils.logPass("Scenario passed", true);
         }
     }
-   // BrowserUtils.quitDriver();
+   BrowserUtils.quitDriver();
 }
 }
