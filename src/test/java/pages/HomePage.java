@@ -25,4 +25,7 @@ public class HomePage {
 
     @FindBy(xpath="(//div[@class=' col-md-6'])[1]")
     public WebElement textInputField;
+
+    @FindBy(xpath="(//div[@class='anyClass'])[1]/div")
+    public List<WebElement> statements2;
 }
