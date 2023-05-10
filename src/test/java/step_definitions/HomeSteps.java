@@ -3,10 +3,14 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.BrowserUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
@@ -31,13 +35,22 @@ LoginPage = new LoginPage();
 BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    @Then("Verify {string} button is displayed")
-    public void verify_button_is_displayed(String string) {
+    @Then("Verify Sign out button is displayed")
+    public void verify_sign_out_button_is_displayed() {
  BrowserUtils.isDisplayed(page.signOutBtn);
     }
     @Then("Verify {string} button is not displayed")
     public void verify_button_is_not_displayed(String manageAccessBtn) {
 
     }
+    @Then("Verify {string} are displayed")
+    public void verify_are_displayed(String dashs) {
+       List<WebElement> dashboards = new ArrayList<>();
+       for(WebElement each: dashboards){
+           BrowserUtils.assertTrue(each.getText().contains(dashs));
+       }
+    }
 
-}
+    }
+
+
