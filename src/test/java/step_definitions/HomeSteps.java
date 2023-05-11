@@ -64,12 +64,18 @@ BrowserUtils.sendKeys(page.textArea, statement);
     public void verify_if_that_is_displayed(String text) {
         List<WebElement> statements = new LinkedList<>();
         for (WebElement each : statements) {
-BrowserUtils.assertTrue(each.getText().contains(text));
+            BrowserUtils.assertTrue(each.getText().contains(text));
             //System.out.println(each.getText());
 
         }
     }
+        @When("I click on {string} btn")
+        public void i_click_on_btn(String btn) {
+        BrowserUtils.click(page.addDontBtn);
+        }
+
     }
+
 
 
 
