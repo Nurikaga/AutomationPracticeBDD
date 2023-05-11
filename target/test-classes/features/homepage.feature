@@ -23,7 +23,8 @@ Feature: Homepage related scenarios
       | Soft skills |
 
     @IN-4a @smoke
-      Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
+#      Positive scenario
+     Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
                 Statement should take only letters and number.
       When I click on "Add do" button
       And I enter "statement 123" into input field
@@ -31,9 +32,29 @@ Feature: Homepage related scenarios
       Then Verify if that "statement 123" is displayed
 
   @IN-4b @smoke
+    # Negative Scenario
+#    -----BUG----- it is accepting symbols
   Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
   Statement should take only letters and number.
     When I click on "Add do" button
     And I enter "@%%123%%nan" into input field
     And I click on "Enter" button
     Then Verify if that "@%%123%%nan" is displayed
+
+  @IN-4c @smoke
+#    positive testing
+  Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
+  Statement should take only letters and number.
+    When I click on "Add don't " btn
+    And I enter "don't enter333" into input field
+    And I click on "Enter" button
+    Then Verify if that "don't enter333" is displayed
+
+  @IN-4d @smoke
+#    negative testing
+  Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
+  Statement should take only letters and number.
+    When I click on "Add don't " btn
+    And I enter "don't do %%@%%!!" into input field
+    And I click on "Enter" button
+    Then Verify if that "don't do %%@%%!!" is displayed

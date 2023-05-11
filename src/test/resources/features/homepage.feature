@@ -40,3 +40,21 @@ Feature: Homepage related scenarios
     And I enter "@%%123%%nan" into input field
     And I click on "Enter" button
     Then Verify if that "@%%123%%nan" is displayed
+
+  @IN-4c @smoke
+#    positive testing
+  Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
+  Statement should take only letters and number.
+    When I click on "Add don't " btn
+    And I enter "don't enter333" into input field
+    And I click on "Enter" button
+    Then Verify if that "don't enter333" is displayed
+
+  @IN-4d @smoke
+#    negative testing failed ---------BUG-----------IT IS accepting symbols as well
+  Scenario: Interview related statements. As a user I should have an option to add a statement in Do's and Don't's sections.
+  Statement should take only letters and number.
+    When I click on "Add don't " btn
+    And I enter "don't do %%@%%!!" into input field
+    And I click on "Enter" button
+    Then Verify if that "don't do %%@%%!!" is displayed

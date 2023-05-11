@@ -28,4 +28,7 @@ public class HomePage {
 
     @FindBy(xpath="(//div[@class='anyClass'])[1]/div")
     public List<WebElement> statements2;
+
+    @FindBy(xpath="//div[@class='col-md-3 dont']/button")
+    public WebElement addDontBtn;
 }
